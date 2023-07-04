@@ -18,11 +18,19 @@ test('test my pick', () => {
   const dogColor: colorPick = {
     color: 'red',
   }
+
   const dogSize: sizePick = {
     size: 'small',
   }
+
   const dogAge: agePick = {
     age: 12,
+  }
+
+  const twentyYearsOldRedSmallDog: MyPick<Dog, 'age' | 'color' | 'size'> = {
+    color: 'red',
+    size: 'small',
+    age: 20,
   }
 
   expect(dogColor.color).toEqual('red')
@@ -30,4 +38,10 @@ test('test my pick', () => {
   expect(dogSize.size).toEqual('small')
   
   expect(dogAge.age).toEqual(12)
+
+  expect(twentyYearsOldRedSmallDog).toEqual({
+    color: 'red',
+    size: 'small',
+    age: 20,
+  })
 })
